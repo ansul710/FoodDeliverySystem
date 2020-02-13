@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'foodzapp',
+    'user_profile'
 ]
 
 MIDDLEWARE = [
@@ -117,5 +119,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+
+AUTH_USER_MODEL = ''
 
 STATIC_URL = '/static/'
