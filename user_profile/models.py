@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser, PermissionsMixin, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 
 
 # Create your models here.
@@ -11,6 +11,7 @@ class UserProfilesManager(BaseUserManager):
             raise ValueError('Enter your password')
         if not phone:
             raise ValueError('User must enter their Phone number')
+
         email = self.normalize_email(email)
         user = self.model(email=email, phone=phone, name=name)
         user.set_password(password)
@@ -19,13 +20,14 @@ class UserProfilesManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, name, password, phone):
-        usr = self.create_user(email, name, password, phone)
-        usr.is_superuser = True
-        usr.is_staff = True
-        usr.save(using=self._db)
+        user = self.create_user(email, name, password, phone)
+        user.is_superuser = True
+        user.is_staff = True
+        user.save(using=self._db)
+        return user
 
 
-class UserProfiles(AbstractUser, PermissionsMixin):
+class UserProfiles(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(max_length=255)
     email = models.EmailField(max_length=255, unique=True)
     phone = models.CharField(max_length=10, unique=True)
