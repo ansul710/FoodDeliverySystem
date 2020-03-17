@@ -82,3 +82,11 @@ def edit_profile(request):
         return render(request, 'users/user_profile.html', context)
 
 
+def password_reset(request):
+    return render(request, 'users/password_reset.html', {})
+
+
+def email_password_reset(request):
+    return render(request, 'users/email_password_reset.html', {})
+
+

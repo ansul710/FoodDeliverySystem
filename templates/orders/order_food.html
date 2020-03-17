@@ -6,23 +6,24 @@
 <h1 class="text-center">Menu</h1>
 
 <p class="text-center">Hello, Please order your food here! </p>
+<div class="card-columns text-center">
 {% for products in products %}
-<div style="display: flex" >
-<div class="card border-primary mb-3" style="width: 18rem;">
-  <img class="card-img-top" src={{ products.item_img.url }} >
+<div class="card border-primary mb-3" style="width: 18rem; height: 33rem;">
+  <img class="card-img-top" src={{ products.item_img.url }}  alt="image">
   <div class="card-body" >
     <h5 class="card-title">{{products.item_name}}</h5>
     <p class="card-text">{{products.item_desc}}</p>
-    <div class="card-footer bg-transparent border-primary text-center">Price: {{products.price}}</div>
-{#    <form method="POST" action="search/">#}
-{#        {% csrf_token %}#}
-{#        <input type="text" name="textfield">#}
-{##}
-{#        <button type="submit">Upload text</button>#}
-{#    </form>#}
+      <div class="card-footer bg-transparent border-primary text-center">Price: {{products.price}}</div>
+
   </div>
 </div>
-</div>
 {% endfor %}
+
+</div>
+
+<div class="text-center">
+<a class="btn btn-outline-danger" href="#" role="button">ADD TO CART</a>
+</div>
+<br>
 
 {% endblock %}

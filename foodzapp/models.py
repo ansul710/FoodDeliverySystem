@@ -8,7 +8,7 @@ class Items(models.Model):
     item_desc = models.CharField(max_length=500, default=' ', null=True)
     price = models.DecimalField(max_digits=5, decimal_places=2, null=True)
     item_img = models.FileField(upload_to='image/', blank=True, null=True)
-    # quantity = models.IntegerField(null=True)
+    qty = models.CharField(max_length=12, null=True, blank=True)
 
     def __str__(self):
         return self.item_name

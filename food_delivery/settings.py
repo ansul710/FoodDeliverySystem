@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'foodzapp',
-    'user_profile'
+    'user_profile',
+   
 ]
 
 MIDDLEWARE = [
@@ -130,10 +131,11 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(LOCAL_STATIC_CDN_PATH, 'media')
 MEDIA_URL = '/media/'
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_USE_TLS = True
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'foodzapp.resetlink@gmail.com'
-# EMAIL_HOST_PASSWORD = ' kycygfljonuejffj'
-# DEFAULT_FROM_EMAIL = 'FoodZapp Team <noreply@foodzapp.com>'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_USE_SSL = False
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'foodzapp.resetlink@gmail.com'
+EMAIL_HOST_PASSWORD = ' kycygfljonuejffj'
+DEFAULT_FROM_EMAIL = 'FoodZapp Team <noreply@foodzapp.com>'
